@@ -1,0 +1,65 @@
+declare module '@liquescens/auth-js'
+{
+    export type Client =
+    {
+        id: string
+        active_session_id: string | undefined
+    }
+    export type Account =
+    {
+        id: string
+        display_name: string
+        mail: string
+        verified: boolean
+    }
+    export type AccountIdentity =
+    {
+        id: string
+        account_id: string
+        provider_id: string
+        external_id: boolean
+    }
+    export type Session =
+    {
+        id: string
+        client_id: string
+        identity_id: string
+    }
+    export type OAuth2Configuration =
+    {
+        id: string
+        auth_uri: string
+        client_id: string
+        scope: string
+    }
+    export class Authentication
+    {
+        constructor(client_id: string, host: string)
+        getClientInfo(): Promise<{ client: Client, sessions: Record<string, Session | undefined>, identities: Record<string, AccountIdentity | undefined>, accounts: Record<string, Account | undefined> }>
+        signOut(session_id: string): Promise<void>
+        setActiveSession(session_id: string): Promise<void>
+    }
+    export class OAuth2
+    {
+        id: string
+        auth_uri: string
+        parameters: {}
+        authenticate(redirect_uri: string): void
+    }
+    export class Google extends OAuth2
+    {
+        constructor(parameters: {})
+    }
+    export class Microsoft extends OAuth2
+    {
+        constructor(parameters: {})
+    }
+    export class GitHub extends OAuth2
+    {
+        constructor(parameters: {})
+    }
+    export class LinkedIn extends OAuth2
+    {
+        constructor(parameters: {})
+    }
+}
