@@ -17,7 +17,7 @@ declare module '@liquescens/auth-js'
         id: string
         account_id: string
         provider_id: string
-        external_id: boolean
+        external_id: string
     }
     export type Session =
     {
@@ -39,27 +39,35 @@ declare module '@liquescens/auth-js'
         signOut(session_id: string): Promise<void>
         setActiveSession(session_id: string): Promise<void>
     }
-    export class OAuth2
+    export class AuthenticationException
     {
-        id: string
-        auth_uri: string
-        parameters: {}
-        authenticate(redirect_uri: string): void
+        category: string
+        message: string
     }
-    export class Google extends OAuth2
+    export namespace OAuth2
     {
-        constructor(parameters: {})
-    }
-    export class Microsoft extends OAuth2
-    {
-        constructor(parameters: {})
-    }
-    export class GitHub extends OAuth2
-    {
-        constructor(parameters: {})
-    }
-    export class LinkedIn extends OAuth2
-    {
-        constructor(parameters: {})
+        export class Provider
+        {
+            id: string
+            auth_uri: string
+            parameters: {}
+            authenticate(redirect_uri: string): void
+        }
+        export class Google extends Provider
+        {
+            constructor(parameters: {})
+        }
+        export class Microsoft extends Provider
+        {
+            constructor(parameters: {})
+        }
+        export class GitHub extends Provider
+        {
+            constructor(parameters: {})
+        }
+        export class LinkedIn extends Provider
+        {
+            constructor(parameters: {})
+        }
     }
 }

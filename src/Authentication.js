@@ -2,6 +2,7 @@
 /** @typedef {import("@liquescens/auth-js").AccountIdentity} AccountIdentity */
 /** @typedef {import("@liquescens/auth-js").Client} Client */
 /** @typedef {import("@liquescens/auth-js").Session} Session */
+/** @typedef {import("@liquescens/auth-js").OAuth2.Provider} Provider */
 
 export class Authentication
 {
