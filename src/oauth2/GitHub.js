@@ -15,5 +15,6 @@ export class GitHub extends Provider
             response_type: 'code',
             scope: 'user'
         };
+        this.$type = { name: 'GitHub' };
     }
 }

@@ -9,6 +9,8 @@ export class Provider
         this.id = id;
         this.auth_uri = auth_uri;
         this.parameters = {};
+        /** @type {{ name: string }} */
+        this.$type = { name: 'Provider' };
     }
 
     /**

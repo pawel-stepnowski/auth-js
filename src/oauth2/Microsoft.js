@@ -15,5 +15,6 @@ export class Microsoft extends Provider
             response_type: 'code',
             scope: 'openid https://graph.microsoft.com/.default'
         };
+        this.$type = { name: 'Microsoft' };
     }
 }

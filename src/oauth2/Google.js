@@ -15,5 +15,6 @@ export class Google extends Provider
             response_type: 'code',
             scope: 'openid email'
         };
+        this.$type = { name: 'Google' };
     }
 }

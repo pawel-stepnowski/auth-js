@@ -15,5 +15,6 @@ export class LinkedIn extends Provider
             response_type: 'code',
             scope: 'profile email'
         };
+        this.$type = { name: 'LinkedIn' };
     }
 }
