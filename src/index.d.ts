@@ -1,5 +1,9 @@
 declare module '@liquescens/auth-js'
 {
+    export type ReflectionType =
+    {
+        name: string
+    }
     export type Client =
     {
         id: string
@@ -48,6 +52,7 @@ declare module '@liquescens/auth-js'
     {
         export class Provider
         {
+            $type: ReflectionType
             id: string
             auth_uri: string
             parameters: {}
