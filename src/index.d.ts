@@ -36,9 +36,17 @@ declare module '@liquescens/auth-js'
         client_id: string
         scope: string
     }
+    export type AuthenticationConfiguration =
+    {
+        service_id: string
+        base_uri: string
+        redirect_uri: string
+        providers: { type: string, client_id: string }
+    }
     export class Authentication
     {
         constructor(client_id: string, host: string)
+        getConfiguration(): Promise<AuthenticationConfiguration>
         getClientInfo(): Promise<{ client: Client, sessions: Record<string, Session | undefined>, identities: Record<string, AccountIdentity | undefined>, accounts: Record<string, Account | undefined> }>
         signOut(session_id: string): Promise<void>
         setActiveSession(session_id: string): Promise<void>

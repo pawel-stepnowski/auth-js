@@ -3,6 +3,7 @@
 /** @typedef {import("@liquescens/auth-js").Client} Client */
 /** @typedef {import("@liquescens/auth-js").Session} Session */
 /** @typedef {import("@liquescens/auth-js").OAuth2.Provider} Provider */
+/** @typedef {import("@liquescens/auth-js").AuthenticationConfiguration} AuthenticationConfiguration */
 
 export class Authentication
 {
@@ -15,6 +16,16 @@ export class Authentication
         this.client_id = client_id;
         this.host = host;
         this.redirect_uri = `${host}/auth`;
+    }
+
+    /**
+     * @returns {Promise<AuthenticationConfiguration>}
+     */
+    async getConfiguration()
+    {
+        const response = await fetch(`${this.host}/configuration`);
+        if (response.status !== 200) throw new Error(`Invalid Server Response (${response.status}). ${this._generateExceptionDetails(response)}`);
+        return await response.json();
     }
 
     /**
