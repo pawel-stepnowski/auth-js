@@ -29,3 +29,11 @@ export function publishToLocalCdn()
     fs.rmSync(path_local_cdn, { recursive: true, force: true });
     fs.cpSync(path_dist, path_local_cdn, { recursive: true });
 }
+
+export function publishNpm()
+{
+    chdir(path_root);
+    build();
+    chdir(path_dist);
+    execSync('npm publish --access public');
+}

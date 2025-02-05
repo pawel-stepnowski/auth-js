@@ -3,6 +3,7 @@
     "scripts": {
         "build": "node -e \"import { build } from './build/scripts/index.js'; build();\"",
         "pack": "node -e \"import { pack } from './build/scripts/index.js'; pack();\"",
-        "publish:local-cdn": "node -e \"import { publishToLocalCdn } from './build/scripts/index.js'; publishToLocalCdn();\""
+        "publish:local-cdn": "node -e \"import { publishToLocalCdn } from './build/scripts/index.js'; publishToLocalCdn();\"",
+        "publish:npm": "node -e \"import { publishNpm } from './build/scripts/index.js'; publishNpm();\""
     }
 }
